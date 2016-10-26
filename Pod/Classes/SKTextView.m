@@ -133,6 +133,11 @@ static CGFloat const kLabelTopOffsetRetina = 0.5f;
     [self.placeholderLabel sizeToFit];
 }
 
+-(void)setPlaceholderAttributedText:(NSAttributedString *)placeholderAttributedText{
+    _placeholderAttributedText = [_placeholderAttributedText copy];
+    self.placeholderLabel.attributedText = placeholderAttributedText;
+    [self.placeholderLabel sizeToFit];
+}
 
 #pragma mark - UITextView subclass methods
 

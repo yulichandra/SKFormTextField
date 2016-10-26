@@ -6,5 +6,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SKTextView : UITextView
+
 @property (nonatomic, copy) NSString *placeholderText;
+@property (nonatomic, copy) NSAttributedString *placeholderAttributedText;
+
 @end

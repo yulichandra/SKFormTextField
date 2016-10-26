@@ -451,8 +451,14 @@
         self.line.backgroundColor = self.lineActiveColor;
     }
     
-    self.textField.placeholder = self.placeholderText;
-    self.textView.placeholderText = self.placeholderText;
+    if(self.placeholderAttributedText){
+        self.textField.attributedPlaceholder = self.placeholderAttributedText;
+        self.textView.placeholderAttributedText = self.placeholderAttributedText;
+    }
+    else{
+        self.textField.placeholder = self.placeholderText;
+        self.textView.placeholderText = self.placeholderText;
+    }
     
     if (self.leftButtonImage) {
         [self.leftButton setImage:self.leftButtonImage forState:UIControlStateNormal];

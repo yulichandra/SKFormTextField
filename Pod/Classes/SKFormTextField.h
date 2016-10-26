@@ -106,6 +106,7 @@ IB_DESIGNABLE
 @property (nonatomic, strong) IBInspectable NSString *placeholderText;
 @property (nonatomic, strong) IBInspectable NSString *descriptionText;
 @property (nonatomic, strong) IBInspectable NSString *errorMessageText;
+@property (nonatomic, strong) IBInspectable NSAttributedString *placeholderAttributedText;
 @property (nonatomic, strong) IBInspectable UIImage *leftButtonImage;
 @property (nonatomic, strong) IBInspectable UIImage *rightButtonImage;
 @property (nonatomic, strong) IBInspectable UIImage *leftIconImage;
