@@ -958,6 +958,24 @@
     }
 }
 
+-(void)setText:(NSString *)text{
+    if(self.type == SKFormTextFieldTypeTextView){
+        self.textView.text = text;
+    }
+    else{
+        self.textField.text = text;
+    }
+}
+
+-(NSString *)text{
+    if(self.type == SKFormTextFieldTypeTextView){
+        return self.textView.text;
+    }
+    else{
+        return self.textField.text;
+    }
+}
+
 - (void)setPlaceholderText:(NSString *)placeholderText {
     _placeholderText = placeholderText;
     

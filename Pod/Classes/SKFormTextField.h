@@ -103,6 +103,7 @@ IB_DESIGNABLE
 @property (nonatomic, strong) IBInspectable UIColor *descriptionActiveColor;
 @property (nonatomic, strong) IBInspectable UIColor *descriptionValidColor;
 @property (nonatomic, strong) IBInspectable UIColor *descriptionErrorColor;
+@property (nonatomic, strong) IBInspectable NSString *text;
 @property (nonatomic, strong) IBInspectable NSString *placeholderText;
 @property (nonatomic, strong) IBInspectable NSString *descriptionText;
 @property (nonatomic, strong) IBInspectable NSString *errorMessageText;
