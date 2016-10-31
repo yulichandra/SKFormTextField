@@ -968,12 +968,14 @@
 }
 
 -(NSString *)text{
+    NSString *text = nil;
     if(self.type == SKFormTextFieldTypeTextView){
-        return self.textView.text;
+        text = self.textView.text;
     }
     else{
-        return self.textField.text;
+        text =  self.textField.text;
     }
+    return [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 }
 
 - (void)setPlaceholderText:(NSString *)placeholderText {
