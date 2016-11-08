@@ -785,6 +785,12 @@
     self.textField.text = [self.dateFormatter stringFromDate:datePicker.date];
 }
 
+-(BOOL)resignFirstResponder{
+    BOOL canResign = [self.textField resignFirstResponder];
+    canResign = canResign || [self.textView resignFirstResponder];
+    return canResign;
+}
+
 #pragma mark - Protocols
 #pragma mark -
 
