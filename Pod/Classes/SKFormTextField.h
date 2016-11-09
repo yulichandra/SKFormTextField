@@ -45,6 +45,12 @@ typedef enum SKFormTextFieldState:NSInteger {
     SKFormTextFieldStateInvalid
 } SKFormTextFieldState;
 
+typedef enum SKFormTextFieldVerticalPosition:NSInteger{
+    SKFormTextFieldVerticalPositionTop,
+    SKFormTextFieldVerticalPositionCenter,
+    SKFormTextFieldVerticalPositionBottom,
+} SKFormTextFieldVerticalPosition;
+
 #pragma mark - Protocols
 #pragma mark -
 
@@ -95,6 +101,8 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable SKFormTextFieldState textFieldState;
 @property (nonatomic) IBInspectable SKFormTextFieldType type;
 @property (nonatomic) IBInspectable SKFormTextFieldMode mode;
+@property (nonatomic) IBInspectable SKFormTextFieldVerticalPosition leftButtonVerticalPosition;
+@property (nonatomic) IBInspectable SKFormTextFieldVerticalPosition rightButtonVerticalPosition;
 @property (nonatomic, strong) IBInspectable UIColor *lineNormalColor;
 @property (nonatomic, strong) IBInspectable UIColor *lineActiveColor;
 @property (nonatomic, strong) IBInspectable UIColor *lineValidColor;
@@ -152,6 +160,8 @@ IB_DESIGNABLE
 @property (strong, nonatomic) NSLayoutConstraint *leftButtonHeightConstraint;
 @property (strong, nonatomic) NSLayoutConstraint *rightButtonWidthConstraint;
 @property (strong, nonatomic) NSLayoutConstraint *rightButtonHeightConstraint;
+@property (strong, nonatomic) NSLayoutConstraint *leftButtonVerticalConstraint;
+@property (strong, nonatomic) NSLayoutConstraint *rightButtonVerticalConstraint;
 @property (strong, nonatomic) NSLayoutConstraint *leftImageWidthConstraint;
 @property (strong, nonatomic) NSLayoutConstraint *leftImageHeightConstraint;
 @property (strong, nonatomic) NSLayoutConstraint *rightImageWidthConstraint;

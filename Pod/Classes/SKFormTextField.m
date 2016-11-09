@@ -178,7 +178,7 @@
                                      attribute:NSLayoutAttributeLeft
                                     multiplier:1.0
                                       constant:0];
-        NSLayoutConstraint *leftButtonVerticalCenterConstaint =
+        self.leftButtonVerticalConstraint =
         [NSLayoutConstraint constraintWithItem:self.leftButton
                                      attribute:NSLayoutAttributeCenterY
                                      relatedBy:NSLayoutRelationEqual
@@ -186,7 +186,7 @@
                                      attribute:NSLayoutAttributeCenterY
                                     multiplier:1.0
                                       constant:0];
-        [self addConstraints:@[self.leftButtonHeightConstraint, self.leftButtonWidthConstraint, leftButtonLeftConstaint, leftButtonVerticalCenterConstaint]];
+        [self addConstraints:@[self.leftButtonHeightConstraint, self.leftButtonWidthConstraint, leftButtonLeftConstaint, self.leftButtonVerticalConstraint]];
         
         // text field
         self.textField.translatesAutoresizingMaskIntoConstraints = NO;
@@ -294,7 +294,7 @@
                                      attribute:NSLayoutAttributeRight
                                     multiplier:1.0
                                       constant:0];
-        NSLayoutConstraint *rightButtonVerticalCenterConstaint =
+        self.rightButtonVerticalConstraint =
         [NSLayoutConstraint constraintWithItem:self.rightButton
                                      attribute:NSLayoutAttributeCenterY
                                      relatedBy:NSLayoutRelationEqual
@@ -302,7 +302,7 @@
                                      attribute:NSLayoutAttributeCenterY
                                     multiplier:1.0
                                       constant:0];
-        [self addConstraints:@[self.rightButtonHeightConstraint, self.rightButtonWidthConstraint, rightButtonLeftConstaint, rightButtonVerticalCenterConstaint]];
+        [self addConstraints:@[self.rightButtonHeightConstraint, self.rightButtonWidthConstraint, rightButtonLeftConstaint, self.rightButtonVerticalConstraint]];
         
         // line
         self.line.translatesAutoresizingMaskIntoConstraints = NO;
@@ -1117,6 +1117,44 @@
     
     if (hasSetuped) {
         [self updateUI];
+    }
+}
+
+-(void)setLeftButtonVerticalPosition:(SKFormTextFieldVerticalPosition)leftButtonVerticalPosition{
+    _leftButtonVerticalPosition = leftButtonVerticalPosition;
+    if (hasSetuped) {
+        [self updateUI];
+        
+        [self removeConstraint:self.leftButtonVerticalConstraint];
+        if(self.leftButtonVerticalPosition == SKFormTextFieldVerticalPositionTop){
+            self.leftButtonVerticalConstraint = [NSLayoutConstraint constraintWithItem:self.leftButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textField attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+        }
+        else if(self.leftButtonVerticalPosition == SKFormTextFieldVerticalPositionBottom){
+            self.leftButtonVerticalConstraint = [NSLayoutConstraint constraintWithItem:self.leftButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.textField attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+        }
+        else{
+            self.leftButtonVerticalConstraint = [NSLayoutConstraint constraintWithItem:self.leftButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.textField attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
+        }
+        [self addConstraint:self.leftButtonVerticalConstraint];
+    }
+}
+
+-(void)setRightButtonVerticalPosition:(SKFormTextFieldVerticalPosition)rightButtonVerticalPosition{
+    _rightButtonVerticalPosition = rightButtonVerticalPosition;
+    if(hasSetuped){
+        [self updateUI];
+        
+        [self removeConstraint:self.rightButtonVerticalConstraint];
+        if(self.rightButtonVerticalPosition == SKFormTextFieldVerticalPositionTop){
+            self.rightButtonVerticalConstraint = [NSLayoutConstraint constraintWithItem:self.rightButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.textField attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+        }
+        else if(self.rightButtonVerticalPosition == SKFormTextFieldVerticalPositionBottom){
+            self.rightButtonVerticalConstraint = [NSLayoutConstraint constraintWithItem:self.rightButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.textField attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+        }
+        else{
+            self.self.rightButtonVerticalPosition = [NSLayoutConstraint constraintWithItem:self.rightButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.textField attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
+        }
+        [self addConstraint:self.rightButtonVerticalConstraint];
     }
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -18,14 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNT-ig-yGh">
-                                <frame key="frameInset" width="320" height="568"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNT-ig-yGh">
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pa1-mS-vOd">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="461"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pa1-mS-vOd">
                                         <subviews>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jPf-NQ-Fa4" customClass="SKFormTextField">
-                                                <frame key="frameInset" minX="20" minY="20" width="280" height="61"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPf-NQ-Fa4" customClass="SKFormTextField">
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="339" id="Ui9-NU-7mi"/>
@@ -45,8 +42,7 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KcA-ih-5WI" customClass="SKFormTextField">
-                                                <frame key="frameInset" minX="20" minY="89" width="280" height="61"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcA-ih-5WI" customClass="SKFormTextField">
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="339" id="UQX-P3-RZD"/>
@@ -77,8 +73,7 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VGW-Ar-Era" customClass="SKFormTextField">
-                                                <frame key="frameInset" minX="20" minY="157" width="280" height="81"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGW-Ar-Era" customClass="SKFormTextField">
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="339" id="IId-n7-g0n"/>
@@ -118,8 +113,7 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGI-ub-dwy" customClass="SKFormTextField">
-                                                <frame key="frameInset" minX="20" minY="246" width="280" height="126"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGI-ub-dwy" customClass="SKFormTextField">
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="339" id="4wB-6n-cLw"/>
@@ -128,12 +122,20 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Text view"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="descriptionText" value="You can set height in storyboard"/>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="required" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="leftButtonHidden" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="leftButtonHidden" value="NO"/>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="leftIconHidden" value="YES"/>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="rightIconHidden" value="YES"/>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="rightButtonHidden" value="NO"/>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="textViewHeight">
                                                         <real key="value" value="100"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="leftButtonImage" value="upload_icn"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="leftButtonVerticalPosition">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="rightButtonImage" value="upload_icn"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rightButtonVerticalPosition">
+                                                        <integer key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <variation key="default">
@@ -142,8 +144,7 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bjf-iG-c7m" customClass="SKFormTextField">
-                                                <frame key="frameInset" minX="20" minY="380" width="280" height="61"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjf-iG-c7m" customClass="SKFormTextField">
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="339" id="xgv-NF-QB3"/>
