@@ -981,7 +981,7 @@
     else{
         text =  self.textField.text;
     }
-    return [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    return text;
 }
 
 - (void)setPlaceholderText:(NSString *)placeholderText {
