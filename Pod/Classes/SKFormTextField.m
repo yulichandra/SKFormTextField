@@ -85,7 +85,7 @@
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidBeginEditing:) name:UITextFieldTextDidBeginEditingNotification object:nil];
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidEndEditing:) name:UITextFieldTextDidEndEditingNotification object:nil];
             
-            self.textField.font = [UIFont fontWithName:@"Roboto-Regular" size:14];
+            self.textField.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
             self.textField.placeholder = self.placeholderText;
             [self addSubview:self.textField];
         }
@@ -105,7 +105,7 @@
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidBeginEditing:) name:UITextViewTextDidBeginEditingNotification object:nil];
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidEndEditing:) name:UITextViewTextDidEndEditingNotification object:nil];
             
-            self.textView.font = [UIFont fontWithName:@"Roboto-Regular" size:14];
+            self.textView.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
             self.textView.placeholderText = self.placeholderText;
             [self addSubview:self.textView];
             self.textView.hidden = YES;
@@ -133,7 +133,7 @@
         }
         if (!self.descriptionLabel) {
             self.descriptionLabel = [UILabel new];
-            self.descriptionLabel.font = [UIFont fontWithName:@"Roboto-Regular" size:12];
+            self.descriptionLabel.font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
             self.descriptionLabel.textColor = self.descriptionNormalColor;
             self.descriptionLabel.numberOfLines = 0;
             self.descriptionLabel.preferredMaxLayoutWidth = self.descriptionLabel.frame.size.width;
