@@ -863,14 +863,11 @@
     }
 }
 
-- (void)textFieldDidChange:(NSNotification *)notification{
-    if( ![self.delegate respondsToSelector:@selector(textFieldDidChange:)] ){
-        return;
-    }
-    
+- (void)textFieldDidChange:(NSNotification *)notification{    
     UITextField *textField = [notification object];
     if( self.textField == textField ){
-        [self.delegate textFieldDidChange:self];
+        self.textFieldState = [self textFieldIsValid] ? SKFormTextFieldStateValid : SKFormTextFieldStateInvalid;
+        [self configureTextFieldForCurrentState];
     }
 }
 
@@ -916,13 +913,10 @@
 }
 
 - (void)textViewDidChange:(NSNotification *)notification{
-    if( ![self.delegate respondsToSelector:@selector(textFieldDidChange:)] ){
-        return;
-    }
-    
     UITextView *textView = [notification object];
     if( self.textView == textView ){
-        [self.delegate textFieldDidChange:self];
+        self.textFieldState = [self textFieldIsValid] ? SKFormTextFieldStateValid : SKFormTextFieldStateInvalid;
+        [self configureTextFieldForCurrentState];
     }
 }
 
