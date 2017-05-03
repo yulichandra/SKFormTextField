@@ -64,6 +64,7 @@ typedef enum SKFormTextFieldVerticalPosition:NSInteger{
 @optional
 - (void)textFieldDidBeginUpdates:(SKFormTextField *)textField;
 - (void)textFieldDidEndUpdates:(SKFormTextField *)textField;
+- (void)textFieldDidChange:(SKFormTextField *)textField;
 
 @end
 

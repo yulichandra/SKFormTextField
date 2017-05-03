@@ -84,6 +84,7 @@
             
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidBeginEditing:) name:UITextFieldTextDidBeginEditingNotification object:nil];
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidEndEditing:) name:UITextFieldTextDidEndEditingNotification object:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:nil];
             
             self.textField.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
             self.textField.placeholder = self.placeholderText;
@@ -104,6 +105,7 @@
             
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidBeginEditing:) name:UITextViewTextDidBeginEditingNotification object:nil];
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidEndEditing:) name:UITextViewTextDidEndEditingNotification object:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChange:) name:UITextViewTextDidChangeNotification object:nil];
             
             self.textView.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
             self.textView.placeholderText = self.placeholderText;
@@ -627,9 +629,11 @@
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidBeginEditingNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidEndEditingNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidBeginEditingNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidEndEditingNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidChangeNotification object:nil];
     
 }
 
@@ -859,6 +863,17 @@
     }
 }
 
+- (void)textFieldDidChange:(NSNotification *)notification{
+    if( ![self.delegate respondsToSelector:@selector(textFieldDidChange:)] ){
+        return;
+    }
+    
+    UITextField *textField = [notification object];
+    if( self.textField == textField ){
+        [self.delegate textFieldDidChange:self];
+    }
+}
+
 #pragma mark - UITextViewDelegate Observers
 #pragma mark -
 
@@ -897,6 +912,17 @@
     
     if ([self.delegate respondsToSelector:@selector(textFieldDidEndUpdates:)]) {
         [self.delegate textFieldDidEndUpdates:self];
+    }
+}
+
+- (void)textViewDidChange:(NSNotification *)notification{
+    if( ![self.delegate respondsToSelector:@selector(textFieldDidChange:)] ){
+        return;
+    }
+    
+    UITextView *textView = [notification object];
+    if( self.textView == textView ){
+        [self.delegate textFieldDidChange:self];
     }
 }
 
