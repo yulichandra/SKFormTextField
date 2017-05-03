@@ -863,7 +863,10 @@
     }
 }
 
-- (void)textFieldDidChange:(NSNotification *)notification{    
+- (void)textFieldDidChange:(NSNotification *)notification{
+    if( !self.enableTextChangeNotification ){
+        return;
+    }
     UITextField *textField = [notification object];
     if( self.textField == textField ){
         self.textFieldState = [self textFieldIsValid] ? SKFormTextFieldStateValid : SKFormTextFieldStateInvalid;
@@ -913,6 +916,9 @@
 }
 
 - (void)textViewDidChange:(NSNotification *)notification{
+    if( !self.enableTextChangeNotification ){
+        return;
+    }
     UITextView *textView = [notification object];
     if( self.textView == textView ){
         self.textFieldState = [self textFieldIsValid] ? SKFormTextFieldStateValid : SKFormTextFieldStateInvalid;

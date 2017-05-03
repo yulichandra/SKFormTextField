@@ -170,6 +170,8 @@ IB_DESIGNABLE
 @property (strong, nonatomic) UIImageView *leftDescriptionIcon;
 @property (strong, nonatomic) UIImageView *rightDescriptionIcon;
 
+@property (assign, nonatomic) BOOL enableTextChangeNotification;
+
 #pragma mark - Methods
 #pragma mark -
 
