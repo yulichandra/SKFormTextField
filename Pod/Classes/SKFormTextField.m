@@ -105,7 +105,7 @@
             
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidBeginEditing:) name:UITextViewTextDidBeginEditingNotification object:nil];
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidEndEditing:) name:UITextViewTextDidEndEditingNotification object:nil];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChange:) name:UITextViewTextDidChangeNotification object:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChanged:) name:UITextViewTextDidChangeNotification object:nil];
             
             self.textView.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
             self.textView.placeholderText = self.placeholderText;
@@ -864,14 +864,11 @@
 }
 
 - (void)textFieldDidChange:(NSNotification *)notification{
-    if( !self.enableTextChangeNotification ){
-        return;
+    
+    if( [self.delegate respondsToSelector:@selector(textFieldDidChanged:)] ){
+        [self.delegate textFieldDidChanged:self];
     }
-    UITextField *textField = [notification object];
-    if( self.textField == textField ){
-        self.textFieldState = [self textFieldIsValid] ? SKFormTextFieldStateValid : SKFormTextFieldStateInvalid;
-        [self configureTextFieldForCurrentState];
-    }
+    
 }
 
 #pragma mark - UITextViewDelegate Observers
@@ -912,17 +909,6 @@
     
     if ([self.delegate respondsToSelector:@selector(textFieldDidEndUpdates:)]) {
         [self.delegate textFieldDidEndUpdates:self];
-    }
-}
-
-- (void)textViewDidChange:(NSNotification *)notification{
-    if( !self.enableTextChangeNotification ){
-        return;
-    }
-    UITextView *textView = [notification object];
-    if( self.textView == textView ){
-        self.textFieldState = [self textFieldIsValid] ? SKFormTextFieldStateValid : SKFormTextFieldStateInvalid;
-        [self configureTextFieldForCurrentState];
     }
 }
 
@@ -1180,7 +1166,7 @@
             self.rightButtonVerticalConstraint = [NSLayoutConstraint constraintWithItem:self.rightButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.textField attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
         }
         else{
-            self.self.rightButtonVerticalPosition = [NSLayoutConstraint constraintWithItem:self.rightButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.textField attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
+            self.rightButtonVerticalConstraint = [NSLayoutConstraint constraintWithItem:self.rightButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.textField attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0];
         }
         [self addConstraint:self.rightButtonVerticalConstraint];
     }

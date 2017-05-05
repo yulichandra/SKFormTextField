@@ -64,6 +64,7 @@ typedef enum SKFormTextFieldVerticalPosition:NSInteger{
 @optional
 - (void)textFieldDidBeginUpdates:(SKFormTextField *)textField;
 - (void)textFieldDidEndUpdates:(SKFormTextField *)textField;
+- (void)textFieldDidChanged:(SKFormTextField *)textField;
 
 @end
 
@@ -169,8 +170,6 @@ IB_DESIGNABLE
 
 @property (strong, nonatomic) UIImageView *leftDescriptionIcon;
 @property (strong, nonatomic) UIImageView *rightDescriptionIcon;
-
-@property (assign, nonatomic) BOOL enableTextChangeNotification;
 
 #pragma mark - Methods
 #pragma mark -
