@@ -105,7 +105,7 @@
             
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidBeginEditing:) name:UITextViewTextDidBeginEditingNotification object:nil];
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidEndEditing:) name:UITextViewTextDidEndEditingNotification object:nil];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldDidChanged:) name:UITextViewTextDidChangeNotification object:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChange:) name:UITextViewTextDidChangeNotification object:nil];
             
             self.textView.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
             self.textView.placeholderText = self.placeholderText;
@@ -866,7 +866,9 @@
 - (void)textFieldDidChange:(NSNotification *)notification{
     
     if( [self.delegate respondsToSelector:@selector(textFieldDidChanged:)] ){
-        [self.delegate textFieldDidChanged:self];
+        UITextField *textField = [notification object];
+        SKFormTextField *parentField = (SKFormTextField *) textField.superview;
+        [self.delegate textFieldDidChanged:parentField];
     }
     
 }
@@ -910,6 +912,16 @@
     if ([self.delegate respondsToSelector:@selector(textFieldDidEndUpdates:)]) {
         [self.delegate textFieldDidEndUpdates:self];
     }
+}
+
+- (void)textViewDidChange:(NSNotification *)notification{
+    
+    if( [self.delegate respondsToSelector:@selector(textFieldDidChanged:)] ){
+        UITextView *textField = [notification object];
+        SKFormTextField *parentField = (SKFormTextField *) textField.superview;
+        [self.delegate textFieldDidChanged:parentField];
+    }
+    
 }
 
 #pragma mark - Getters/Setters
