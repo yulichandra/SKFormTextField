@@ -8,14 +8,14 @@
 
 Pod::Spec.new do |s|
   s.name             = "SKFormTextField"
-  s.version          = "0.2.11"
+  s.version          = "0.2.12"
   s.summary          = "Custom UITextField/UITextView"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
 #   * Try to keep it short, snappy and to the point.
 #   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
+#   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description      = "Custom UITextField/UITextView container with form validation, description text and more"
 
   s.homepage         = "https://github.com/chika-kasymov/SKFormTextField"

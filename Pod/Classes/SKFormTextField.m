@@ -152,298 +152,325 @@
             [self addSubview:self.rightDescriptionIcon];
         }
         
-        // Add constraints
-        
-        // left button
-        self.leftButton.translatesAutoresizingMaskIntoConstraints = NO;
-        self.leftButtonHeightConstraint =
-        [NSLayoutConstraint constraintWithItem:self.leftButton
-                                     attribute:NSLayoutAttributeHeight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:nil
-                                     attribute:NSLayoutAttributeNotAnAttribute
-                                    multiplier:1.0
-                                      constant:24];
-        self.leftButtonWidthConstraint =
-        [NSLayoutConstraint constraintWithItem:self.leftButton
-                                     attribute:NSLayoutAttributeWidth
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:nil
-                                     attribute:NSLayoutAttributeNotAnAttribute
-                                    multiplier:1.0
-                                      constant:24];
-        NSLayoutConstraint *leftButtonLeftConstaint =
-        [NSLayoutConstraint constraintWithItem:self.leftButton
-                                     attribute:NSLayoutAttributeLeft
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self
-                                     attribute:NSLayoutAttributeLeft
-                                    multiplier:1.0
-                                      constant:0];
-        self.leftButtonVerticalConstraint =
-        [NSLayoutConstraint constraintWithItem:self.leftButton
-                                     attribute:NSLayoutAttributeCenterY
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.textField
-                                     attribute:NSLayoutAttributeCenterY
-                                    multiplier:1.0
-                                      constant:0];
-        [self addConstraints:@[self.leftButtonHeightConstraint, self.leftButtonWidthConstraint, leftButtonLeftConstaint, self.leftButtonVerticalConstraint]];
-        
-        // text field
-        self.textField.translatesAutoresizingMaskIntoConstraints = NO;
-        self.textFieldHeightConstraint =
-        [NSLayoutConstraint constraintWithItem:self.textField
-                                     attribute:NSLayoutAttributeHeight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:nil
-                                     attribute:NSLayoutAttributeNotAnAttribute
-                                    multiplier:1.0
-                                      constant:self.textViewHeight];
-        NSLayoutConstraint *textFieldTopConstaint =
-        [NSLayoutConstraint constraintWithItem:self.textField
-                                     attribute:NSLayoutAttributeTop
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self
-                                     attribute:NSLayoutAttributeTop
-                                    multiplier:1.0
-                                      constant:0];
-        NSLayoutConstraint *textFieldBottomConstaint =
-        [NSLayoutConstraint constraintWithItem:self.textField
-                                     attribute:NSLayoutAttributeBottom
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.line
-                                     attribute:NSLayoutAttributeTop
-                                    multiplier:1.0
-                                      constant:0];
-        self.textFieldLeftConstraint =
-        [NSLayoutConstraint constraintWithItem:self.textField
-                                     attribute:NSLayoutAttributeLeft
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.leftButton
-                                     attribute:NSLayoutAttributeRight
-                                    multiplier:1.0
-                                      constant:8];
-        self.textFieldRightConstraint =
-        [NSLayoutConstraint constraintWithItem:self.textField
-                                     attribute:NSLayoutAttributeRight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.rightButton
-                                     attribute:NSLayoutAttributeLeft
-                                    multiplier:1.0
-                                      constant:-8];
-        [self addConstraints:@[self.textFieldHeightConstraint, textFieldTopConstaint, textFieldBottomConstaint, self.textFieldLeftConstraint, self.textFieldRightConstraint]];
-        
-        // textView
-        self.textView.translatesAutoresizingMaskIntoConstraints = NO;
-        NSLayoutConstraint *textViewTopConstraint =
-        [NSLayoutConstraint constraintWithItem:self.textView
-                                     attribute:NSLayoutAttributeTop
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.textField
-                                     attribute:NSLayoutAttributeTop
-                                    multiplier:1.0
-                                      constant:0];
-        NSLayoutConstraint *textViewLeftConstraint =
-        [NSLayoutConstraint constraintWithItem:self.textView
-                                     attribute:NSLayoutAttributeLeft
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.textField
-                                     attribute:NSLayoutAttributeLeft
-                                    multiplier:1.0
-                                      constant:0];
-        NSLayoutConstraint *textViewBottomConstraint =
-        [NSLayoutConstraint constraintWithItem:self.textView
-                                     attribute:NSLayoutAttributeBottom
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.textField
-                                     attribute:NSLayoutAttributeBottom
-                                    multiplier:1.0
-                                      constant:0];
-        NSLayoutConstraint *textViewRightConstraint =
-        [NSLayoutConstraint constraintWithItem:self.textView
-                                     attribute:NSLayoutAttributeRight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.textField
-                                     attribute:NSLayoutAttributeRight
-                                    multiplier:1.0
-                                      constant:0];
-        [self addConstraints:@[textViewTopConstraint, textViewLeftConstraint, textViewBottomConstraint, textViewRightConstraint]];
-        
-        // right button
-        self.rightButton.translatesAutoresizingMaskIntoConstraints = NO;
-        self.rightButtonHeightConstraint =
-        [NSLayoutConstraint constraintWithItem:self.rightButton
-                                     attribute:NSLayoutAttributeHeight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:nil
-                                     attribute:NSLayoutAttributeNotAnAttribute
-                                    multiplier:1.0
-                                      constant:24];
-        self.rightButtonWidthConstraint =
-        [NSLayoutConstraint constraintWithItem:self.rightButton
-                                     attribute:NSLayoutAttributeWidth
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:nil
-                                     attribute:NSLayoutAttributeNotAnAttribute
-                                    multiplier:1.0
-                                      constant:24];
-        NSLayoutConstraint *rightButtonLeftConstaint =
-        [NSLayoutConstraint constraintWithItem:self.rightButton
-                                     attribute:NSLayoutAttributeRight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self
-                                     attribute:NSLayoutAttributeRight
-                                    multiplier:1.0
-                                      constant:0];
-        self.rightButtonVerticalConstraint =
-        [NSLayoutConstraint constraintWithItem:self.rightButton
-                                     attribute:NSLayoutAttributeCenterY
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.textField
-                                     attribute:NSLayoutAttributeCenterY
-                                    multiplier:1.0
-                                      constant:0];
-        [self addConstraints:@[self.rightButtonHeightConstraint, self.rightButtonWidthConstraint, rightButtonLeftConstaint, self.rightButtonVerticalConstraint]];
-        
-        // line
-        self.line.translatesAutoresizingMaskIntoConstraints = NO;
-        NSLayoutConstraint *lineLeftConstraint =
-        [NSLayoutConstraint constraintWithItem:self.line
-                                     attribute:NSLayoutAttributeLeft
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self
-                                     attribute:NSLayoutAttributeLeft
-                                    multiplier:1.0
-                                      constant:0];
-        NSLayoutConstraint *lineRightConstraint =
-        [NSLayoutConstraint constraintWithItem:self.line
-                                     attribute:NSLayoutAttributeRight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self
-                                     attribute:NSLayoutAttributeRight
-                                    multiplier:1.0
-                                      constant:0];
-        self.lineHeightConstraint =
-        [NSLayoutConstraint constraintWithItem:self.line
-                                     attribute:NSLayoutAttributeHeight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:nil
-                                     attribute:NSLayoutAttributeNotAnAttribute
-                                    multiplier:1.0
-                                      constant:1];
-        [self addConstraints:@[lineLeftConstraint, lineRightConstraint, self.lineHeightConstraint]];
-        
-        // left icon
-        self.leftDescriptionIcon.translatesAutoresizingMaskIntoConstraints = NO;
-        self.leftImageHeightConstraint =
-        [NSLayoutConstraint constraintWithItem:self.leftDescriptionIcon
-                                     attribute:NSLayoutAttributeHeight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:nil
-                                     attribute:NSLayoutAttributeNotAnAttribute
-                                    multiplier:1.0
-                                      constant:18];
-        self.leftImageWidthConstraint =
-        [NSLayoutConstraint constraintWithItem:self.leftDescriptionIcon
-                                     attribute:NSLayoutAttributeWidth
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:nil
-                                     attribute:NSLayoutAttributeNotAnAttribute
-                                    multiplier:1.0
-                                      constant:18];
-        NSLayoutConstraint *leftDescriptionIconLeftConstaint =
-        [NSLayoutConstraint constraintWithItem:self.leftDescriptionIcon
-                                     attribute:NSLayoutAttributeLeft
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self
-                                     attribute:NSLayoutAttributeLeft
-                                    multiplier:1.0
-                                      constant:0];
-        NSLayoutConstraint *leftDescriptionIconVerticalCenterConstaint =
-        [NSLayoutConstraint constraintWithItem:self.leftDescriptionIcon
-                                     attribute:NSLayoutAttributeCenterY
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.descriptionLabel
-                                     attribute:NSLayoutAttributeCenterY
-                                    multiplier:1.0
-                                      constant:0];
-        [self addConstraints:@[self.leftImageHeightConstraint, self.leftImageWidthConstraint, leftDescriptionIconLeftConstaint, leftDescriptionIconVerticalCenterConstaint]];
-        
-        // description label
-        self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        self.descriptionToLineConstraint =
-        [NSLayoutConstraint constraintWithItem:self.descriptionLabel
-                                     attribute:NSLayoutAttributeTop
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.line
-                                     attribute:NSLayoutAttributeBottom
-                                    multiplier:1.0
-                                      constant:4];
-        NSLayoutConstraint *descriptionLabelBottomConstaint =
-        [NSLayoutConstraint constraintWithItem:self.descriptionLabel
-                                     attribute:NSLayoutAttributeBottom
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self
-                                     attribute:NSLayoutAttributeBottom
-                                    multiplier:1.0
-                                      constant:0];
-        self.descriptionLabelLeftConstraint =
-        [NSLayoutConstraint constraintWithItem:self.descriptionLabel
-                                     attribute:NSLayoutAttributeLeft
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.leftDescriptionIcon
-                                     attribute:NSLayoutAttributeRight
-                                    multiplier:1.0
-                                      constant:8];
-        self.descriptionLabelRightConstraint =
-        [NSLayoutConstraint constraintWithItem:self.descriptionLabel
-                                     attribute:NSLayoutAttributeRight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.rightDescriptionIcon
-                                     attribute:NSLayoutAttributeLeft
-                                    multiplier:1.0
-                                      constant:-8];
-        [self addConstraints:@[self.descriptionToLineConstraint, descriptionLabelBottomConstaint, self.descriptionLabelLeftConstraint, self.descriptionLabelRightConstraint]];
-        
-        // right icon
-        self.rightDescriptionIcon.translatesAutoresizingMaskIntoConstraints = NO;
-        self.rightImageHeightConstraint =
-        [NSLayoutConstraint constraintWithItem:self.rightDescriptionIcon
-                                     attribute:NSLayoutAttributeHeight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:nil
-                                     attribute:NSLayoutAttributeNotAnAttribute
-                                    multiplier:1.0
-                                      constant:18];
-        self.rightImageWidthConstraint =
-        [NSLayoutConstraint constraintWithItem:self.rightDescriptionIcon
-                                     attribute:NSLayoutAttributeWidth
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:nil
-                                     attribute:NSLayoutAttributeNotAnAttribute
-                                    multiplier:1.0
-                                      constant:18];
-        NSLayoutConstraint *rightDescriptionIconLeftConstaint =
-        [NSLayoutConstraint constraintWithItem:self.rightDescriptionIcon
-                                     attribute:NSLayoutAttributeRight
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self
-                                     attribute:NSLayoutAttributeRight
-                                    multiplier:1.0
-                                      constant:0];
-        NSLayoutConstraint *rightDescriptionIconVerticalCenterConstaint =
-        [NSLayoutConstraint constraintWithItem:self.rightDescriptionIcon
-                                     attribute:NSLayoutAttributeCenterY
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.descriptionLabel
-                                     attribute:NSLayoutAttributeCenterY
-                                    multiplier:1.0
-                                      constant:0];
-        [self addConstraints:@[self.rightImageHeightConstraint, self.rightImageWidthConstraint, rightDescriptionIconLeftConstaint, rightDescriptionIconVerticalCenterConstaint]];
+        [self setupConstraints];
         
         hasSetuped = YES;
     }
+}
+
+- (void) setupConstraints{
+    [self setupTextConstraints];
+    [self setupDescriptionConstraints];
+}
+
+- (void) setupTextConstraints{
+    [self setupLeftButtonConstraints];
+    [self setupTextFieldConstraints];
+    [self setupTextViewConstraints];
+    [self setupRightButtonConstraints];
+    [self setupLineConstraints];
+}
+
+- (void) setupDescriptionConstraints{
+    [self setupLeftDescriptionIconConstraints];
+    [self setupDescriptionLabelConstraints];
+    [self setupRightDescriptionIconConstraints];
+}
+
+- (void) setupLeftButtonConstraints{
+    self.leftButton.translatesAutoresizingMaskIntoConstraints = NO;
+    self.leftButtonHeightConstraint =
+    [NSLayoutConstraint constraintWithItem:self.leftButton
+                                 attribute:NSLayoutAttributeHeight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:nil
+                                 attribute:NSLayoutAttributeNotAnAttribute
+                                multiplier:1.0
+                                  constant:24];
+    self.leftButtonWidthConstraint =
+    [NSLayoutConstraint constraintWithItem:self.leftButton
+                                 attribute:NSLayoutAttributeWidth
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:nil
+                                 attribute:NSLayoutAttributeNotAnAttribute
+                                multiplier:1.0
+                                  constant:24];
+    NSLayoutConstraint *leftButtonLeftConstaint =
+    [NSLayoutConstraint constraintWithItem:self.leftButton
+                                 attribute:NSLayoutAttributeLeft
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self
+                                 attribute:NSLayoutAttributeLeft
+                                multiplier:1.0
+                                  constant:0];
+    self.leftButtonVerticalConstraint =
+    [NSLayoutConstraint constraintWithItem:self.leftButton
+                                 attribute:NSLayoutAttributeCenterY
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.textField
+                                 attribute:NSLayoutAttributeCenterY
+                                multiplier:1.0
+                                  constant:0];
+    [self addConstraints:@[self.leftButtonHeightConstraint, self.leftButtonWidthConstraint, leftButtonLeftConstaint, self.leftButtonVerticalConstraint]];
+}
+
+-(void) setupTextFieldConstraints{
+    self.textField.translatesAutoresizingMaskIntoConstraints = NO;
+    self.textFieldHeightConstraint =
+    [NSLayoutConstraint constraintWithItem:self.textField
+                                 attribute:NSLayoutAttributeHeight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:nil
+                                 attribute:NSLayoutAttributeNotAnAttribute
+                                multiplier:1.0
+                                  constant:self.textViewHeight];
+    NSLayoutConstraint *textFieldTopConstaint =
+    [NSLayoutConstraint constraintWithItem:self.textField
+                                 attribute:NSLayoutAttributeTop
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self
+                                 attribute:NSLayoutAttributeTop
+                                multiplier:1.0
+                                  constant:0];
+    NSLayoutConstraint *textFieldBottomConstaint =
+    [NSLayoutConstraint constraintWithItem:self.textField
+                                 attribute:NSLayoutAttributeBottom
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.line
+                                 attribute:NSLayoutAttributeTop
+                                multiplier:1.0
+                                  constant:0];
+    self.textFieldLeftConstraint =
+    [NSLayoutConstraint constraintWithItem:self.textField
+                                 attribute:NSLayoutAttributeLeft
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.leftButton
+                                 attribute:NSLayoutAttributeRight
+                                multiplier:1.0
+                                  constant:8];
+    self.textFieldRightConstraint =
+    [NSLayoutConstraint constraintWithItem:self.textField
+                                 attribute:NSLayoutAttributeRight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.rightButton
+                                 attribute:NSLayoutAttributeLeft
+                                multiplier:1.0
+                                  constant:-8];
+    [self addConstraints:@[self.textFieldHeightConstraint, textFieldTopConstaint, textFieldBottomConstaint, self.textFieldLeftConstraint, self.textFieldRightConstraint]];
+}
+
+-(void) setupTextViewConstraints{
+    self.textView.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *textViewTopConstraint =
+    [NSLayoutConstraint constraintWithItem:self.textView
+                                 attribute:NSLayoutAttributeTop
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.textField
+                                 attribute:NSLayoutAttributeTop
+                                multiplier:1.0
+                                  constant:0];
+    NSLayoutConstraint *textViewLeftConstraint =
+    [NSLayoutConstraint constraintWithItem:self.textView
+                                 attribute:NSLayoutAttributeLeft
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.textField
+                                 attribute:NSLayoutAttributeLeft
+                                multiplier:1.0
+                                  constant:0];
+    NSLayoutConstraint *textViewBottomConstraint =
+    [NSLayoutConstraint constraintWithItem:self.textView
+                                 attribute:NSLayoutAttributeBottom
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.textField
+                                 attribute:NSLayoutAttributeBottom
+                                multiplier:1.0
+                                  constant:0];
+    NSLayoutConstraint *textViewRightConstraint =
+    [NSLayoutConstraint constraintWithItem:self.textView
+                                 attribute:NSLayoutAttributeRight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.textField
+                                 attribute:NSLayoutAttributeRight
+                                multiplier:1.0
+                                  constant:0];
+    [self addConstraints:@[textViewTopConstraint, textViewLeftConstraint, textViewBottomConstraint, textViewRightConstraint]];
+}
+
+-(void) setupRightButtonConstraints{
+    self.rightButton.translatesAutoresizingMaskIntoConstraints = NO;
+    self.rightButtonHeightConstraint =
+    [NSLayoutConstraint constraintWithItem:self.rightButton
+                                 attribute:NSLayoutAttributeHeight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:nil
+                                 attribute:NSLayoutAttributeNotAnAttribute
+                                multiplier:1.0
+                                  constant:24];
+    self.rightButtonWidthConstraint =
+    [NSLayoutConstraint constraintWithItem:self.rightButton
+                                 attribute:NSLayoutAttributeWidth
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:nil
+                                 attribute:NSLayoutAttributeNotAnAttribute
+                                multiplier:1.0
+                                  constant:24];
+    NSLayoutConstraint *rightButtonLeftConstaint =
+    [NSLayoutConstraint constraintWithItem:self.rightButton
+                                 attribute:NSLayoutAttributeRight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self
+                                 attribute:NSLayoutAttributeRight
+                                multiplier:1.0
+                                  constant:0];
+    self.rightButtonVerticalConstraint =
+    [NSLayoutConstraint constraintWithItem:self.rightButton
+                                 attribute:NSLayoutAttributeCenterY
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.textField
+                                 attribute:NSLayoutAttributeCenterY
+                                multiplier:1.0
+                                  constant:0];
+    [self addConstraints:@[self.rightButtonHeightConstraint, self.rightButtonWidthConstraint, rightButtonLeftConstaint, self.rightButtonVerticalConstraint]];
+}
+
+- (void) setupLineConstraints{
+    self.line.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *lineLeftConstraint =
+    [NSLayoutConstraint constraintWithItem:self.line
+                                 attribute:NSLayoutAttributeLeft
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self
+                                 attribute:NSLayoutAttributeLeft
+                                multiplier:1.0
+                                  constant:0];
+    NSLayoutConstraint *lineRightConstraint =
+    [NSLayoutConstraint constraintWithItem:self.line
+                                 attribute:NSLayoutAttributeRight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self
+                                 attribute:NSLayoutAttributeRight
+                                multiplier:1.0
+                                  constant:0];
+    self.lineHeightConstraint =
+    [NSLayoutConstraint constraintWithItem:self.line
+                                 attribute:NSLayoutAttributeHeight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:nil
+                                 attribute:NSLayoutAttributeNotAnAttribute
+                                multiplier:1.0
+                                  constant:1];
+    [self addConstraints:@[lineLeftConstraint, lineRightConstraint, self.lineHeightConstraint]];
+}
+
+-(void) setupLeftDescriptionIconConstraints{
+    self.leftDescriptionIcon.translatesAutoresizingMaskIntoConstraints = NO;
+    self.leftImageHeightConstraint =
+    [NSLayoutConstraint constraintWithItem:self.leftDescriptionIcon
+                                 attribute:NSLayoutAttributeHeight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:nil
+                                 attribute:NSLayoutAttributeNotAnAttribute
+                                multiplier:1.0
+                                  constant:18];
+    self.leftImageWidthConstraint =
+    [NSLayoutConstraint constraintWithItem:self.leftDescriptionIcon
+                                 attribute:NSLayoutAttributeWidth
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:nil
+                                 attribute:NSLayoutAttributeNotAnAttribute
+                                multiplier:1.0
+                                  constant:18];
+    NSLayoutConstraint *leftDescriptionIconLeftConstaint =
+    [NSLayoutConstraint constraintWithItem:self.leftDescriptionIcon
+                                 attribute:NSLayoutAttributeLeft
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self
+                                 attribute:NSLayoutAttributeLeft
+                                multiplier:1.0
+                                  constant:0];
+    NSLayoutConstraint *leftDescriptionIconVerticalCenterConstaint =
+    [NSLayoutConstraint constraintWithItem:self.leftDescriptionIcon
+                                 attribute:NSLayoutAttributeCenterY
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.descriptionLabel
+                                 attribute:NSLayoutAttributeCenterY
+                                multiplier:1.0
+                                  constant:0];
+    [self addConstraints:@[self.leftImageHeightConstraint, self.leftImageWidthConstraint, leftDescriptionIconLeftConstaint, leftDescriptionIconVerticalCenterConstaint]];
+}
+
+-(void) setupDescriptionLabelConstraints{
+    self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.descriptionToLineConstraint =
+    [NSLayoutConstraint constraintWithItem:self.descriptionLabel
+                                 attribute:NSLayoutAttributeTop
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.line
+                                 attribute:NSLayoutAttributeBottom
+                                multiplier:1.0
+                                  constant:4];
+    NSLayoutConstraint *descriptionLabelBottomConstaint =
+    [NSLayoutConstraint constraintWithItem:self.descriptionLabel
+                                 attribute:NSLayoutAttributeBottom
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self
+                                 attribute:NSLayoutAttributeBottom
+                                multiplier:1.0
+                                  constant:0];
+    self.descriptionLabelLeftConstraint =
+    [NSLayoutConstraint constraintWithItem:self.descriptionLabel
+                                 attribute:NSLayoutAttributeLeft
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.textField
+                                 attribute:NSLayoutAttributeLeft
+                                multiplier:1.0
+                                  constant:0];
+    self.descriptionLabelRightConstraint =
+    [NSLayoutConstraint constraintWithItem:self.descriptionLabel
+                                 attribute:NSLayoutAttributeRight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.rightDescriptionIcon
+                                 attribute:NSLayoutAttributeLeft
+                                multiplier:1.0
+                                  constant:-8];
+    [self addConstraints:@[self.descriptionToLineConstraint, descriptionLabelBottomConstaint, self.descriptionLabelLeftConstraint, self.descriptionLabelRightConstraint]];
+}
+
+-(void) setupRightDescriptionIconConstraints{
+    self.rightDescriptionIcon.translatesAutoresizingMaskIntoConstraints = NO;
+    self.rightImageHeightConstraint =
+    [NSLayoutConstraint constraintWithItem:self.rightDescriptionIcon
+                                 attribute:NSLayoutAttributeHeight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:nil
+                                 attribute:NSLayoutAttributeNotAnAttribute
+                                multiplier:1.0
+                                  constant:18];
+    self.rightImageWidthConstraint =
+    [NSLayoutConstraint constraintWithItem:self.rightDescriptionIcon
+                                 attribute:NSLayoutAttributeWidth
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:nil
+                                 attribute:NSLayoutAttributeNotAnAttribute
+                                multiplier:1.0
+                                  constant:18];
+    NSLayoutConstraint *rightDescriptionIconLeftConstaint =
+    [NSLayoutConstraint constraintWithItem:self.rightDescriptionIcon
+                                 attribute:NSLayoutAttributeRight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self
+                                 attribute:NSLayoutAttributeRight
+                                multiplier:1.0
+                                  constant:0];
+    NSLayoutConstraint *rightDescriptionIconVerticalCenterConstaint =
+    [NSLayoutConstraint constraintWithItem:self.rightDescriptionIcon
+                                 attribute:NSLayoutAttributeCenterY
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.descriptionLabel
+                                 attribute:NSLayoutAttributeCenterY
+                                multiplier:1.0
+                                  constant:0];
+    [self addConstraints:@[self.rightImageHeightConstraint, self.rightImageWidthConstraint, rightDescriptionIconLeftConstaint, rightDescriptionIconVerticalCenterConstaint]];
 }
 
 - (void)updateUI {
@@ -734,7 +761,6 @@
         self.leftDescriptionIcon.hidden = NO;
         self.rightDescriptionIcon.hidden = NO;
         
-        self.descriptionLabelLeftConstraint.constant = 8;
         self.leftImageWidthConstraint.constant = 18;
         self.leftImageHeightConstraint.constant = 18;
         
@@ -744,7 +770,6 @@
     } else if (side == SKFormTextFieldSideLeft) {
         self.leftDescriptionIcon.hidden = NO;
         
-        self.descriptionLabelLeftConstraint.constant = 8;
         self.leftImageWidthConstraint.constant = 18;
         self.leftImageHeightConstraint.constant = 18;
     } else if (side == SKFormTextFieldSideRight) {
