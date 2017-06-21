@@ -9,5 +9,6 @@
 
 @property (nonatomic, copy) NSString *placeholderText;
 @property (nonatomic, copy) NSAttributedString *placeholderAttributedText;
+@property (nonatomic, strong, readonly) UILabel *placeholderLabel;
 
 @end
